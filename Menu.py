@@ -1,9 +1,11 @@
-import os
 
-import Detector,Radiacion
+
+import Detector,Radiacion,Sanador
 class menu:
     adn=["aaaatc","tacgag","ttatga","tatgcc","tggtac","ggtaaa"]
     analizar=Detector.Detector(adn)
+    sanador=Sanador.sanador(adn)
+
     def __init__(self):
         pass
 
@@ -33,10 +35,10 @@ class menu:
     def menu_acciones(self):
         while True:
             opcion=input("\nseleccione una de las siguientes opciones para su muestra de ADN: \n"
-              "1-Detectar mutaciones...\n"
-              "2-Generar una mutacion por radiacion...\n"
-              "3-Generar una mutacion por virus...\n"
-              "4-Sanar mutacion...\n")
+                         "1-Detectar mutaciones...\n"
+                         "2-Generar una mutacion por radiacion...\n"
+                         "3-Generar una mutacion por virus...\n"
+                         "4-Sanar mutacion...\n")
             if opcion not in "1234":
                 print("opcion no valida, por favor ingrese una de las siguientes opciones...\n")
             elif opcion=="1":
@@ -45,6 +47,14 @@ class menu:
             elif opcion=="2":
                 self.crear_mutacion_radiacion()
                 break
+            elif opcion=="3":
+                self.crear_mutacion_radiacion()
+                break
+            elif opcion=="4":
+                self.sanar_mutacion()
+                break
+
+
 
     def guardar_ADN(self):
         fila=0
@@ -75,3 +85,12 @@ class menu:
         mutar_por_mutacion=Radiacion.Radiacion(base_nitrogenada,self.adn,
                                                [posicion_inicial_fila,posicion_inicial_columna],orientacion)
         mutar_por_mutacion.crear_mutante()
+
+
+    def crear_mutacion_radiacion(self):
+        pass
+
+
+    def sanar_mutacion(self):
+
+        self.sanador.sanar_mutante(self.analizar)

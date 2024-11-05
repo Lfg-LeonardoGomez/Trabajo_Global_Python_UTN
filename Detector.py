@@ -5,7 +5,7 @@ class Detector:
 
     def __init__(self, adn):
         self.adn = adn
-        #self.mostrar_ADN()
+
 
 
     def detectar_mutantes(self,adn):
